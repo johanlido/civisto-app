@@ -90,9 +90,10 @@
                     <!-- Location Information -->
                     <div class="location-info">
                         <i data-feather="map-pin"></i>
-                        <span>Current Location: <strong>Kungsgatan 32, Stockholm</strong></span>
+                        <span>Current Location: <strong>Loading...</strong></span>
                         <button class="location-change-btn">Change</button>
                     </div>
+                    <div id="map-container" style="display: none;"></div>
                     
                     <!-- Send Button -->
                     <button class="btn btn-primary send-report-btn">
@@ -133,6 +134,9 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/report.js"></script>
     <script src="js/new-report.js"></script>
 </body>
 </html>

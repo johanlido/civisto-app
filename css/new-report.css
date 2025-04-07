@@ -191,6 +191,14 @@
     margin-top: 8px;
 }
 
+/* Map Container */
+#map {
+    height: 300px;
+    margin-top: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 /* Responsive Adjustments */
 @media (min-width: 768px) {
     .new-report-section {

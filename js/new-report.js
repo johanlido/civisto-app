@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function () {
     // Initialize Feather icons
     feather.replace();
     
@@ -13,7 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const previewClose = document.querySelector('.preview-close');
     const sendReportBtn = document.querySelector('.send-report-btn');
     const locationChangeBtn = document.querySelector('.location-change-btn');
-    
+    const locationInfo = document.querySelector('.location-info span');
+
+    // Initialize location
+    try {
+        await LocationHandler.initializeLocation();
+        const address = await LocationHandler.getAddress(LocationHandler.currentPosition.lat, LocationHandler.currentPosition.lng);
+        locationInfo.innerHTML = `Current Location: <strong>${address}</strong>`;
+    } catch (error) {
+        console.error("Failed to initialize location:", error);
+        locationInfo.innerHTML = "Current Location: <strong>Unable to fetch location</strong>";
+    }
+
     // Handle category selection
     categoryChips.forEach(chip => {
         chip.addEventListener('click', function() {
@@ -75,11 +86,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Handle location change
-    locationChangeBtn.addEventListener('click', function() {
-        console.log('Change location clicked');
-        alert('This would open a location picker in a real implementation.');
+    locationChangeBtn.addEventListener('click', () => {
+        const mapContainer = document.createElement('div');
+        mapContainer.id = 'map';
+        mapContainer.style.height = '300px';
+        locationInfo.parentElement.appendChild(mapContainer);
+
+        LocationHandler.updateMap('map', async (newPosition, newAddress) => {
+            locationInfo.innerHTML = `Current Location: <strong>${newAddress}</strong>`;
+        });
     });
-    
+
+    // Handle report submission
+    sendReportBtn.addEventListener('click', async () => {
+        const description = reportTextarea.value.trim();
+        if (!description) {
+            alert("Please describe the issue before sending the report.");
+            return;
+        }
+
+        await ReportHandler.sendReport(description);
+    });
+
     // Handle report submission
     sendReportBtn.addEventListener('click', function() {
         const reportText = reportTextarea.value.trim();
