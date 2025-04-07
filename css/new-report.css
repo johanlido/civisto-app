@@ -184,6 +184,27 @@
     cursor: pointer;
 }
 
+.location-info-container {
+    margin-bottom: 16px;
+}
+
+#map-container {
+    height: 300px;
+    margin-top: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: none; /* Initially hidden */
+    transition: height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Start with opacity 0 */
+    background-color: #f9fafb; /* Add a fallback background color */
+}
+
+#map-container.active {
+    display: block; /* Show map when active */
+    height: 400px; /* Expand map when active */
+    opacity: 1; /* Fade in */
+}
+
 /* Send Button */
 .send-report-btn {
     width: 100%;
@@ -192,9 +213,6 @@
 }
 
 .send-report-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
 .send-feedback {

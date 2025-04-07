@@ -15,15 +15,24 @@ document.addEventListener('DOMContentLoaded', async function () {
     const locationChangeBtn = document.querySelector('.location-change-btn');
     const locationInfo = document.querySelector('.location-info span');
     const sendFeedback = document.querySelector('.send-feedback');
+    const mapContainer = document.getElementById('map-container');
+    let mapInstance = null; // Store the map instance
+
+    const loadingIndicator = document.createElement('span'); // Add a loading indicator
+    loadingIndicator.textContent = "Loading...";
+    loadingIndicator.style.color = "#6b7280";
+    locationInfo.appendChild(loadingIndicator);
 
     // Initialize location
     try {
         await LocationHandler.initializeLocation();
         const address = await LocationHandler.getAddress(LocationHandler.currentPosition.lat, LocationHandler.currentPosition.lng);
-        locationInfo.innerHTML = `Current Location: <strong>${address}</strong>`;
+        locationInfo.innerHTML = `Current Location: <strong>${shortenAddress(address)}</strong>`;
     } catch (error) {
         console.error("Failed to initialize location:", error);
         locationInfo.innerHTML = "Current Location: <strong>Unable to fetch location</strong>";
+    } finally {
+        loadingIndicator.remove(); // Remove the loading indicator
     }
 
     // Handle category selection
@@ -121,14 +130,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     
     // Handle location change
     locationChangeBtn.addEventListener('click', () => {
-        const mapContainer = document.createElement('div');
-        mapContainer.id = 'map';
-        mapContainer.style.height = '300px';
-        locationInfo.parentElement.appendChild(mapContainer);
+        if (!mapContainer.classList.contains('active')) {
+            mapContainer.style.display = 'block'; // Ensure map is visible
+            mapContainer.classList.add('active'); // Expand map
 
-        LocationHandler.updateMap('map', async (newPosition, newAddress) => {
-            locationInfo.innerHTML = `Current Location: <strong>${newAddress}</strong>`;
-        });
+            if (!mapInstance) {
+                // Initialize the map only once
+                mapInstance = LocationHandler.updateMap('map-container', async (newPosition, newAddress) => {
+                    locationInfo.innerHTML = `Current Location: <strong>${shortenAddress(newAddress)}</strong>`;
+                    mapContainer.classList.remove('active'); // Shrink map after selection
+                    mapContainer.style.display = 'none'; // Hide map
+                });
+            }
+        } else {
+            mapContainer.classList.remove('active'); // Shrink map if already active
+            mapContainer.style.display = 'none'; // Hide map
+        }
     });
 
     // Handle report submission
@@ -237,10 +254,15 @@ document.addEventListener('DOMContentLoaded', async function () {
             } else if (tabName === 'new') {
                 window.location.href = 'new-report.html';
             } else if (tabName === 'rewards') {
-                console.log('Rewards page would open here.');
+                window.location.href = 'rewards.html'; // Correctly navigate to rewards.html
             } else if (tabName === 'profile') {
-                console.log('Profile page would open here.');
+                window.location.href = 'profile.html';
             }
         });
     });
+
+    // Helper function to shorten the address
+    function shortenAddress(address) {
+        return address.split(',')[0]; // Return only the first part of the address
+    }
 });

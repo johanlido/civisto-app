@@ -14,12 +14,10 @@ class ReportHandler {
             userProfile: "Private",
         };
 
-        // Use a CORS proxy to bypass CORS restrictions
-        const proxyUrl = "https://corsproxy.io/?";
         const targetUrl = "http://103.177.248.131:5678/webhook/7475d8ba-6602-4633-b3f0-30d0c002a1de";
 
         try {
-            const response = await fetch(proxyUrl + targetUrl, {
+            const response = await fetch(targetUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
