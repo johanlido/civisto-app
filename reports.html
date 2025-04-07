@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reports - Civisto Mobile App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reports.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <!-- Feather Icons (similar to Lucide) -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background with Gradient and Dots Pattern -->
+        <div class="background-pattern"></div>
+
+        <!-- Status Bar -->
+        <div class="status-bar"></div>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">Civisto</div>
+            <div class="header-icons">
+                <i data-feather="bell"></i>
+                <div class="avatar"></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Reports Page Header -->
+            <div class="reports-page-header">
+                <h2>Your Reports</h2>
+                
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <div class="filter-tab active" data-filter="all">All</div>
+                    <div class="filter-tab" data-filter="pending">Pending</div>
+                    <div class="filter-tab" data-filter="in-progress">In Progress</div>
+                    <div class="filter-tab" data-filter="resolved">Resolved</div>
+                </div>
+            </div>
+            
+            <!-- Reports List -->
+            <div class="reports-list-section">
+                <!-- Report Cards -->
+                <div class="report-cards">
+                    <div class="report-card" data-status="in-progress" data-id="1">
+                        <div class="report-content">
+                            <div class="report-image electricity">
+                                <i data-feather="zap"></i>
+                            </div>
+                            <div class="report-details">
+                                <div class="report-status-row">
+                                    <span class="status-badge yellow">In Progress</span>
+                                    <span class="report-time">2h ago</span>
+                                </div>
+                                <h3>Broken Streetlight</h3>
+                                <p>Kungsgatan 32, Stockholm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card" data-status="resolved" data-id="2">
+                        <div class="report-content">
+                            <div class="report-image retail">
+                                <i data-feather="shopping-cart"></i>
+                            </div>
+                            <div class="report-details">
+                                <div class="report-status-row">
+                                    <span class="status-badge green">Resolved</span>
+                                    <span class="report-time">Yesterday</span>
+                                </div>
+                                <h3>Abandoned Trolley</h3>
+                                <p>Götgatan 14, Stockholm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card" data-status="pending" data-id="3">
+                        <div class="report-content">
+                            <div class="report-image safety">
+                                <i data-feather="alert-triangle"></i>
+                            </div>
+                            <div class="report-details">
+                                <div class="report-status-row">
+                                    <span class="status-badge blue">Pending</span>
+                                    <span class="report-time">3d ago</span>
+                                </div>
+                                <h3>Broken Fence</h3>
+                                <p>Sveavägen 73, Stockholm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card" data-status="resolved" data-id="4">
+                        <div class="report-content">
+                            <div class="report-image graffiti">
+                                <i data-feather="edit"></i>
+                            </div>
+                            <div class="report-details">
+                                <div class="report-status-row">
+                                    <span class="status-badge green">Resolved</span>
+                                    <span class="report-time">1w ago</span>
+                                </div>
+                                <h3>Graffiti on Building</h3>
+                                <p>Drottninggatan 28, Stockholm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-card" data-status="in-progress" data-id="5">
+                        <div class="report-content">
+                            <div class="report-image traffic">
+                                <i data-feather="truck"></i>
+                            </div>
+                            <div class="report-details">
+                                <div class="report-status-row">
+                                    <span class="status-badge yellow">In Progress</span>
+                                    <span class="report-time">5d ago</span>
+                                </div>
+                                <h3>Illegal Parking</h3>
+                                <p>Birger Jarlsgatan 41, Stockholm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Empty State (hidden by default) -->
+                <div class="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <i data-feather="clipboard"></i>
+                    </div>
+                    <h3>No reports found</h3>
+                    <p>No reports match your current filter.</p>
+                    <button class="btn btn-primary reset-filter-btn">
+                        <span>Reset Filter</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item" data-tab="home">
+                <i data-feather="home"></i>
+                <span>Home</span>
+            </a>
+            <a href="reports.html" class="nav-item" data-tab="reports">
+                <i data-feather="clipboard"></i>
+                <span>Reports</span>
+            </a>
+            
+            <a href="new-report.html" class="nav-item new-report" data-tab="new">
+                <div class="add-button">
+                    <i data-feather="plus"></i>
+                </div>
+                <span>New Report</span>
+            </a>
+            
+            <a href="index.html" class="nav-item" data-tab="rewards">
+                <i data-feather="award"></i>
+                <span>Rewards</span>
+            </a>
+            <a href="index.html" class="nav-item" data-tab="profile">
+                <i data-feather="user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>

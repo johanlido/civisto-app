@@ -1,0 +1,313 @@
+/* Report Detail Page Styles */
+
+/* Header with back button */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #4b5563;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button:hover {
+    color: #1f2937;
+}
+
+/* Report Detail Section */
+.report-detail-section {
+    padding: 16px;
+    padding-bottom: 80px;
+}
+
+/* Status Banner */
+.status-banner {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.status-banner.yellow {
+    background-color: #fef3c7;
+}
+
+.status-banner.green {
+    background-color: #dcfce7;
+}
+
+.status-banner.blue {
+    background-color: #dbeafe;
+}
+
+.status-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.status-banner.yellow .status-icon i {
+    color: #d97706;
+}
+
+.status-banner.green .status-icon i {
+    color: #16a34a;
+}
+
+.status-banner.blue .status-icon i {
+    color: #2563eb;
+}
+
+.status-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.status-banner.yellow .status-text h3 {
+    color: #b45309;
+}
+
+.status-banner.green .status-text h3 {
+    color: #16a34a;
+}
+
+.status-banner.blue .status-text h3 {
+    color: #2563eb;
+}
+
+.status-text p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Report Title Section */
+.report-title-section {
+    margin-bottom: 20px;
+}
+
+.report-title-section h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.report-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.report-meta-item {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.report-meta-item i {
+    margin-right: 8px;
+    color: #9ca3af;
+}
+
+/* Report Cards */
+.report-description-card,
+.report-image-card,
+.progress-timeline-card,
+.similar-reports-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.report-description-card h3,
+.report-image-card h3,
+.progress-timeline-card h3,
+.similar-reports-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.report-description-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+/* Report Image */
+.report-image-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.report-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Progress Timeline */
+.timeline {
+    position: relative;
+    padding-left: 28px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #e5e7eb;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #e5e7eb;
+}
+
+.timeline-item.completed .timeline-marker {
+    background-color: #22c55e;
+    border-color: #22c55e;
+}
+
+.timeline-item.active .timeline-marker {
+    background-color: white;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.timeline-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.timeline-content p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Similar Reports */
+.similar-reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.similar-report-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.similar-report-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.similar-report-icon.electricity {
+    background-color: #fef9c3;
+    color: #ca8a04;
+}
+
+.similar-report-details {
+    flex: 1;
+}
+
+.similar-report-details h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 2px;
+}
+
+.similar-report-details p {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.similar-report-item i {
+    color: #9ca3af;
+}
+
+/* Action Buttons */
+.report-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.report-actions .btn {
+    flex: 1;
+    padding: 12px;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .report-detail-section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 24px;
+    }
+    
+    .report-meta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-title-section h1 {
+        font-size: 20px;
+    }
+    
+    .report-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

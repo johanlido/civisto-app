@@ -1,0 +1,177 @@
+/* Additional Responsive Styles */
+
+/* Global responsive adjustments */
+@media (min-width: 1024px) {
+    .app-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .bottom-nav {
+        max-width: 1200px;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-content {
+        padding-bottom: 100px;
+    }
+    
+    /* Adjust hero section for tablets */
+    .hero-card h1 {
+        font-size: 24px;
+    }
+    
+    .hero-card p {
+        font-size: 16px;
+    }
+    
+    /* Adjust stats section for tablets */
+    .stats-grid {
+        gap: 24px;
+    }
+    
+    .stat-circle {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .stat-number {
+        font-size: 16px;
+    }
+    
+    /* Adjust report cards for tablets */
+    .report-cards, .trending-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    /* Ensure buttons are properly sized on small screens */
+    .action-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .btn {
+        min-width: 0;
+        padding: 8px 10px;
+    }
+    
+    /* Adjust navigation for small screens */
+    .nav-item span {
+        font-size: 10px;
+    }
+    
+    /* Ensure report cards are properly displayed */
+    .report-content {
+        gap: 8px;
+    }
+    
+    .report-image {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .report-details h3 {
+        font-size: 14px;
+    }
+    
+    /* Adjust new report page for small screens */
+    .category-chips {
+        gap: 6px;
+    }
+    
+    .category-chip {
+        padding: 6px 10px;
+    }
+    
+    .category-chip span {
+        font-size: 12px;
+    }
+    
+    /* Adjust report detail page for small screens */
+    .report-title-section h1 {
+        font-size: 18px;
+    }
+    
+    .status-banner {
+        padding: 12px;
+    }
+    
+    .status-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .timeline-content h4 {
+        font-size: 13px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .header {
+        padding: 10px 12px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    
+    .btn svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Adjust filter tabs for extra small screens */
+    .filter-tab {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+    
+    /* Ensure report detail content is readable */
+    .report-description-card p,
+    .timeline-content p {
+        font-size: 12px;
+    }
+}
+
+/* Fix for notched devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .status-bar {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .bottom-nav {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .bottom-nav {
+        height: 50px;
+    }
+    
+    .nav-item span {
+        display: none;
+    }
+    
+    .add-button {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .main-content {
+        padding-bottom: 60px;
+    }
+}

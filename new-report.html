@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>New Report - Civisto Mobile App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/new-report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <!-- Feather Icons (similar to Lucide) -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background with Gradient and Dots Pattern -->
+        <div class="background-pattern"></div>
+
+        <!-- Status Bar -->
+        <div class="status-bar"></div>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">Civisto</div>
+            <div class="header-icons">
+                <i data-feather="bell"></i>
+                <div class="avatar"></div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- New Report Section -->
+            <div class="new-report-section">
+                <h2>New Report</h2>
+                
+                <!-- Suggested Categories -->
+                <div class="suggested-categories">
+                    <h3>Suggested Categories</h3>
+                    <div class="category-chips">
+                        <div class="category-chip">
+                            <i data-feather="zap"></i>
+                            <span>Electricity</span>
+                        </div>
+                        <div class="category-chip">
+                            <i data-feather="trash-2"></i>
+                            <span>Garbage</span>
+                        </div>
+                        <div class="category-chip">
+                            <i data-feather="alert-triangle"></i>
+                            <span>Safety</span>
+                        </div>
+                        <div class="category-chip">
+                            <i data-feather="truck"></i>
+                            <span>Traffic</span>
+                        </div>
+                        <div class="category-chip">
+                            <i data-feather="edit"></i>
+                            <span>Graffiti</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Report Input Area -->
+                <div class="report-input-card">
+                    <div class="input-area">
+                        <textarea placeholder="Describe the issue you're reporting..." class="report-textarea"></textarea>
+                        <div class="input-actions">
+                            <button class="input-action-btn">
+                                <i data-feather="mic"></i>
+                            </button>
+                            <button class="input-action-btn">
+                                <i data-feather="camera"></i>
+                            </button>
+                            <button class="input-action-btn">
+                                <i data-feather="image"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Preview Area (hidden by default) -->
+                    <div class="image-preview-area" style="display: none;">
+                        <div class="image-preview">
+                            <div class="preview-close">
+                                <i data-feather="x"></i>
+                            </div>
+                            <img src="#" alt="Preview" id="image-preview">
+                        </div>
+                    </div>
+                    
+                    <!-- Location Information -->
+                    <div class="location-info">
+                        <i data-feather="map-pin"></i>
+                        <span>Current Location: <strong>Kungsgatan 32, Stockholm</strong></span>
+                        <button class="location-change-btn">Change</button>
+                    </div>
+                    
+                    <!-- Send Button -->
+                    <button class="btn btn-primary send-report-btn">
+                        <i data-feather="send"></i>
+                        <span>Send Report</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item" data-tab="home">
+                <i data-feather="home"></i>
+                <span>Home</span>
+            </a>
+            <a href="reports.html" class="nav-item" data-tab="reports">
+                <i data-feather="clipboard"></i>
+                <span>Reports</span>
+            </a>
+            
+            <a href="new-report.html" class="nav-item new-report" data-tab="new">
+                <div class="add-button">
+                    <i data-feather="plus"></i>
+                </div>
+                <span>New Report</span>
+            </a>
+            
+            <a href="index.html" class="nav-item" data-tab="rewards">
+                <i data-feather="award"></i>
+                <span>Rewards</span>
+            </a>
+            <a href="index.html" class="nav-item" data-tab="profile">
+                <i data-feather="user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/new-report.js"></script>
+</body>
+</html>

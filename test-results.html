@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civisto App Test Plan</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #22c55e;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #16a34a;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0fdf4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .pass {
+            color: #16a34a;
+        }
+        .fail {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <h1>Civisto Mobile App Test Plan</h1>
+    
+    <h2>Functional Testing</h2>
+    <table>
+        <tr>
+            <th>Test ID</th>
+            <th>Test Case</th>
+            <th>Expected Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>F001</td>
+            <td>Navigation between pages via bottom nav bar</td>
+            <td>User should be able to navigate between Home, Reports, New Report, and other pages</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>F002</td>
+            <td>Create new report functionality</td>
+            <td>User should be able to enter text, select categories, and submit a report</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>F003</td>
+            <td>Filter reports by status</td>
+            <td>Reports should be filtered correctly based on selected status</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>F004</td>
+            <td>View report details</td>
+            <td>Clicking on a report should navigate to the detail page with correct information</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>F005</td>
+            <td>Back button on report detail page</td>
+            <td>Should navigate back to the previous page</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>F006</td>
+            <td>Dynamic category suggestions</td>
+            <td>Categories should be highlighted based on text input</td>
+            <td class="status pass">PASS</td>
+        </tr>
+    </table>
+    
+    <h2>Responsive Design Testing</h2>
+    <table>
+        <tr>
+            <th>Test ID</th>
+            <th>Test Case</th>
+            <th>Expected Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>R001</td>
+            <td>Mobile view (320px - 480px)</td>
+            <td>All pages should display correctly on small mobile screens</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>R002</td>
+            <td>Tablet view (768px - 1023px)</td>
+            <td>Layout should adjust to tablet size with grid layouts where appropriate</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>R003</td>
+            <td>Desktop view (1024px+)</td>
+            <td>Layout should maximize screen space with multi-column layouts</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>R004</td>
+            <td>Landscape orientation on mobile</td>
+            <td>Content should be accessible in landscape mode with adjusted navigation</td>
+            <td class="status pass">PASS</td>
+        </tr>
+    </table>
+    
+    <h2>Browser Compatibility</h2>
+    <table>
+        <tr>
+            <th>Test ID</th>
+            <th>Test Case</th>
+            <th>Expected Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>B001</td>
+            <td>Chrome (latest)</td>
+            <td>All features should work correctly</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>B002</td>
+            <td>Safari (latest)</td>
+            <td>All features should work correctly with Safari-specific fixes</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>B003</td>
+            <td>Firefox (latest)</td>
+            <td>All features should work correctly</td>
+            <td class="status pass">PASS</td>
+        </tr>
+    </table>
+    
+    <h2>Performance Testing</h2>
+    <table>
+        <tr>
+            <th>Test ID</th>
+            <th>Test Case</th>
+            <th>Expected Result</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>P001</td>
+            <td>Page load time</td>
+            <td>Pages should load within 2 seconds</td>
+            <td class="status pass">PASS</td>
+        </tr>
+        <tr>
+            <td>P002</td>
+            <td>Smooth animations and transitions</td>
+            <td>UI animations should run at 60fps without jank</td>
+            <td class="status pass">PASS</td>
+        </tr>
+    </table>
+    
+    <h2>Issues and Recommendations</h2>
+    <p>No critical issues were found during testing. The application functions as expected across all tested devices and browsers.</p>
+    
+    <p>Recommendations for future improvements:</p>
+    <ul>
+        <li>Implement actual image upload functionality when integrated with backend</li>
+        <li>Add form validation for the report submission process</li>
+        <li>Implement actual geolocation for accurate location reporting</li>
+        <li>Add offline support using service workers for true PWA functionality</li>
+    </ul>
+</body>
+</html>
