@@ -191,6 +191,23 @@
     margin-top: 8px;
 }
 
+.send-report-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.send-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-gif {
+    width: 24px;
+    height: 24px;
+}
+
 /* Map Container */
 #map {
     height: 300px;
