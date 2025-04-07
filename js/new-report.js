@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const sendReportBtn = document.querySelector('.send-report-btn');
     const locationChangeBtn = document.querySelector('.location-change-btn');
     const locationInfo = document.querySelector('.location-info span');
+    const sendFeedback = document.querySelector('.send-feedback');
 
     // Initialize location
     try {
@@ -42,22 +43,56 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     });
     
-    // Simulate microphone functionality
-    micButton.addEventListener('click', function() {
-        console.log('Microphone button clicked');
-        alert('Voice recording started. This is a simulation.');
-        
-        // Simulate voice-to-text after 2 seconds
-        setTimeout(() => {
-            reportTextarea.value += (reportTextarea.value ? ' ' : '') + 'Voice transcription would appear here.';
-            alert('Voice recording completed.');
-        }, 2000);
+    // Remove placeholder text when user starts typing
+    reportTextarea.addEventListener('input', function () {
+        if (this.placeholder) {
+            this.placeholder = '';
+        }
     });
-    
+
+    // Handle microphone functionality with Speech Recognition API
+    micButton.addEventListener('click', function () {
+        if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+            console.error('Speech Recognition API is not supported in this browser.');
+            return;
+        }
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.start();
+
+        recognition.onstart = function () {
+            console.log('Voice recording started...');
+            micButton.disabled = true; // Disable the button while recording
+        };
+
+        recognition.onresult = function (event) {
+            const transcript = event.results[0][0].transcript;
+            console.log('Transcription:', transcript);
+
+            // Append the transcribed text to the textarea
+            reportTextarea.value = transcript;
+            reportTextarea.placeholder = ''; // Clear placeholder if it exists
+        };
+
+        recognition.onerror = function (event) {
+            console.error('Speech recognition error:', event.error);
+        };
+
+        recognition.onend = function () {
+            console.log('Voice recording ended.');
+            micButton.disabled = false; // Re-enable the button
+        };
+    });
+
     // Simulate camera functionality
     cameraButton.addEventListener('click', function() {
         console.log('Camera button clicked');
-        alert('This would open the device camera in a real implementation.');
         
         // Simulate taking a photo
         simulateImageCapture();
@@ -66,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Simulate gallery functionality
     galleryButton.addEventListener('click', function() {
         console.log('Gallery button clicked');
-        alert('This would open the device gallery in a real implementation.');
         
         // Simulate selecting an image
         simulateImageCapture();
@@ -101,11 +135,29 @@ document.addEventListener('DOMContentLoaded', async function () {
     sendReportBtn.addEventListener('click', async () => {
         const description = reportTextarea.value.trim();
         if (!description) {
-            alert("Please describe the issue before sending the report.");
+            console.error("Please describe the issue before sending the report.");
             return;
         }
 
-        await ReportHandler.sendReport(description);
+        // Show feedback GIF
+        sendFeedback.style.display = 'flex';
+        sendReportBtn.disabled = true;
+
+        try {
+            await ReportHandler.sendReport(description);
+            console.log('Report submitted successfully!');
+        } catch (error) {
+            console.error("Failed to submit report:", error);
+        } finally {
+            // Hide feedback GIF and re-enable button
+            sendFeedback.style.display = 'none';
+            sendReportBtn.disabled = false;
+
+            // Reset form
+            reportTextarea.value = '';
+            categoryChips.forEach(chip => chip.classList.remove('active'));
+            imagePreviewArea.style.display = 'none';
+        }
     });
 
     // Handle report submission
@@ -113,12 +165,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         const reportText = reportTextarea.value.trim();
         
         if (!reportText) {
-            alert('Please describe the issue before sending the report.');
+            console.error('Please describe the issue before sending the report.');
             return;
         }
         
         console.log('Sending report:', reportText);
-        alert('Report submitted successfully! This is a simulation.');
         
         // Reset form
         reportTextarea.value = '';
@@ -186,9 +237,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             } else if (tabName === 'new') {
                 window.location.href = 'new-report.html';
             } else if (tabName === 'rewards') {
-                alert('Rewards page would open here.');
+                console.log('Rewards page would open here.');
             } else if (tabName === 'profile') {
-                alert('Profile page would open here.');
+                console.log('Profile page would open here.');
             }
         });
     });
