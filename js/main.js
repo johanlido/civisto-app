@@ -150,6 +150,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    item.addEventListener('click', function() {
+        // Get the tab name
+        const tabName = this.getAttribute('data-tab');
+        
+        // Navigate to the appropriate page
+        if (tabName === 'new') {
+            window.location.href = 'new-report.html';
+        }
+    };
+    
     // Call once on load and on window resize
     adjustButtonsForMobile();
     window.addEventListener('resize', adjustButtonsForMobile);

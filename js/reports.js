@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
     
     // Add click event listener to each nav item
-    navItems.forEach(item => {
+   /* navItems.forEach(item => {
         item.addEventListener('click', function() {
             // Get the tab name
             const tabName = this.getAttribute('data-tab');
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (tabName === 'new') {
                 window.location.href = 'new-report.html';
             } else if (tabName === 'rewards') {
-                alert('Rewards page would open here.');
+                window.location.href = 'rewards.html';
             } else if (tabName === 'profile') {
                 alert('Profile page would open here.');
             }
         });
-    });
+    });*/
 });

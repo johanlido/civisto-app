@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-item');
     
     // Add click event listener to each nav item
-    navItems.forEach(item => {
+    /*navItems.forEach(item => {
         item.addEventListener('click', function() {
             // Get the tab name
             const tabName = this.getAttribute('data-tab');
@@ -115,5 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Profile page would open here.');
             }
         });
-    });
+    });*/
 });
