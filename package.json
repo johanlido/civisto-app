@@ -1,0 +1,28 @@
+{
+  "name": "civisto-app",
+  "version": "1.0.0",
+  "description": "Civisto frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johanlido/civisto-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johanlido/civisto-app/issues"
+  },
+  "homepage": "https://github.com/johanlido/civisto-app#readme",
+  "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/camera": "^7.0.1",
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
+    "@ionic/pwa-elements": "^3.3.0"
+  }
+}
